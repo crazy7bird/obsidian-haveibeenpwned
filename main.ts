@@ -9,7 +9,13 @@ export default class HIBP extends Plugin {
         let gDatas:entry[]= [];
         async function convertRawDatasJson(src:string){
             //src = codeblockprocessor raw datas
-            const Datas = JSON.parse(src);
+            let Datas = [];
+            try{
+                Datas = JSON.parse(src);
+            }
+            catch(err:any){
+                Datas = [];
+            }
             gDatas = Datas;
         }
         

@@ -73,7 +73,14 @@ class HIBP extends obsidian.Plugin {
         let gDatas = [];
         async function convertRawDatasJson(src) {
             //src = codeblockprocessor raw datas
-            const Datas = JSON.parse(src);
+            let Datas = [];
+            try {
+                Datas = JSON.parse(src);
+            }
+            catch (err) {
+                console.log(err);
+                Datas = [];
+            }
             gDatas = Datas;
         }
         async function htmlDecoration(data, el) {
